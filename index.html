@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+      .card-img-top {
+          object-fit: cover;
+          height: 100%; 
+          width: 100%; 
+      }
+
+      .card {
+          height: 18rem;
+          width: 18rem;
+          
+      }
+  </style>
+    <title>The Instagram Photo Feed (with Bootstrap)</title>
+</head>
+<body>
+    <div class="container"> 
+<!--Nav bar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+          </svg>Instagram
+        </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          
+          
+
+            <form class="d-flex">
+              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Create New Post
+              </button>
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Create a new post</h5>
+                      
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="mb-3">
+                        <label for="message-text" class="col-form-label">
+                          <h6>Caption:</h6>
+                        </label>
+                        <textarea class="form-control" id="message-text"
+                        placeholder="Add the caption of your post here"></textarea>
+                        <button type="button" class="mt-3 pt-1 btn btn-light btn btn-outline-secondary">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera-fill" viewBox="0 0 16 16">
+                            <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                            <path d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0"/>
+                          </svg>
+                        </button>
+                        <button type="button" class="mt-3 pt-1 px-3 btn btn-light btn btn-outline-secondary">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-success">Publish</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                  <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+                </svg>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Accesibilty</a></li>
+                <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" style="color: red" href="#">Log Out</a>
+          
+              </ul>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--nav tabs-->
+<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+    </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <!--gridview-->     
+    <div class="container text-center">
+      <div class="row">
+       <div class="col-4">
+         <div class="card m-0" style="width:18rem;height: 18rem;">
+                 <img src="https://www.wilson.com/en-us/media/catalog/product/article_images/WTH01020X_/WTH01020X__e79165155a81c0e376450a96ffb821bf.png?dpr=2&fit=bounds&orient=1&quality=90&optimize=high&format=pjpg&auto=webp&enable=upscale&width=1920&height=904&bg-color=f5f5f5" class="img-thumbnail">
+             </div>
+         </div>
+         <div class="col-4">
+           <div class="card m-0" style="width:18rem;height: 18rem;">
+                 <img src="https://www.volleyamerica.com/images/leagues/678.jpg" class="img-thumbnail">
+             </div>
+         </div>
+         <div class="col-4">
+           <div class="card m-0" style="width:18rem;height: 18rem;">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6s08-fKtNea86dUcZdkW0dRrYyX885sibdwusz8ROrKBVa1nsQGLe1CtHGm4tlWM2ssU&usqp=CAU" class="img-thumbnail">
+             </div>
+         </div>
+     </div>
+     <div class="row">
+       <div class="col-4">
+         <div class="card m-0" style="width:18rem;height: 18rem;">
+                 <img src="https://www.recesspickleball.com/cdn/shop/products/recesspickleball-paddle-vista-38396200190195.jpg?v=1665198537"  class="img-thumbnail">
+             </div>
+         </div>
+         <div class="col-4">
+           <div class="card m-0" style="width:18rem;height: 18rem;">
+                 <img src="https://scontent-ord5-2.xx.fbcdn.net/v/t39.30808-6/239198380_4210621325653673_7857223962333306645_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=9534ce&_nc_ohc=ftbq1s3C-qwAX8ADhcb&_nc_ht=scontent-ord5-2.xx&oh=00_AfBdyF0esxH4ht82BxNMbgpD_JdnU44MyZPe-gAvgijw5w&oe=65EBE3CD" class="img-thumbnail">
+             </div>
+         </div>
+         <div class="col-4">
+           <div class="card m-0" style="width:18rem;height: 18rem;">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqnMpOxQrLHBMyEw9Rg-sYy-QxyjJ9rXTxOw&usqp=CAU" class="img-thumbnail">
+             </div>
+         </div>
+     </div>
+     <div class="row">
+       <div class="col-4">
+         <div class="card m-0" style="width:18rem;height: 18rem;">
+                 <img src="https://ih1.redbubble.net/image.5076965639.1073/fposter,small,wall_texture,square_product,600x600.jpg" class="img-thumbnail" style="height: 100%; width: 100%;">
+             </div>
+         </div>
+         <div class="col-4">
+           <div class="card m-0" style="width:18rem;height: 18rem;">
+                 <img class="img-thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_dYzUp2-JH64Ikfi1gjbnk2NiACEyFYwmQQ&usqp=CAU" style="height: 100%; width: 100%;" >
+             </div>
+             </div>
+         <div class="col-4">
+           <div class="card m-0" style="width:18rem;height: 18rem;">
+                 <img class="img-thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4YkmRlPOmsIzBQlRfGjIROC-du58Kr1u_Cg&usqp=CAU"  >
+             </div>
+         </div>
+     </div>
+   </div> 
+    </div>
+    
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <!--singleview--> 
+      <div class="container">
+        <div class="row justify-content-md-center">
+          <div class="col-md-8 mx-auto pt-3">
+              <div class="card">
+                    <div class="card-header bg-white d-flex justify-content-between">
+                      <h4 class="card-title">Best Volleyball to Date</h4>
+                     <span class="text-muted">11/11</span> 
+                    </div>
+                    <img src="https://www.wilson.com/en-us/media/catalog/product/article_images/WTH01020X_/WTH01020X__e79165155a81c0e376450a96ffb821bf.png?dpr=2&fit=bounds&orient=1&quality=90&optimize=high&format=pjpg&auto=webp&enable=upscale&width=1920&height=904&bg-color=f5f5f5" class="img-thumbnail" alt="...">
+                      <div class="body-card">
+                        <h5 class="text-dark">97 Likes</h5>
+                        <p class="card-text">The Optix is my favorite ball to play volleyball with.</p>
+                        <p class="card-text"><span class="text-muted mr-2"><i
+                          class="far fa-heart fa-1x"></i></span><span
+                      class="text-muted">Comment...</span></p>
+                       </div>  
+                        
+                      </div>
+                    </div>
+              </div>
+              
+          </div>
+
+          <div class="container">
+            <div class="row justify-content-md-center">
+              <div class="col-md-8 mx-auto pt-3">
+                  <div class="card">
+                        <div class="card-header bg-white d-flex justify-content-between">
+                          <h4 class="card-title">Goat Ropers Volleyball</h4>
+                         <span class="text-muted">11/12</span> 
+                        </div>
+                        <img src="https://www.volleyamerica.com/images/leagues/678.jpg" class="img-thumbnail" alt="...">
+                          <div class="body-card">
+                            <h5 class="text-dark">65465 Likes</h5>
+                            <p class="card-text">This is the logo of my volleyball company. Where I run tournaments and offer training.</p>
+                            <p class="card-text"><span class="text-muted mr-2"><i
+                              class="far fa-heart fa-1x"></i></span><span
+                          class="text-muted">Comment...</span></p>
+                           </div>  
+                            
+                          </div>
+                        </div>
+                  </div>
+                  
+              </div>
+
+              <div class="container">
+                <div class="row justify-content-md-center">
+                  <div class="col-md-8 mx-auto pt-3">
+                      <div class="card">
+                            <div class="card-header bg-white d-flex justify-content-between">
+                              <h4 class="card-title">St. Louis Blues</h4>
+                             <span class="text-muted">11/13</span> 
+                            </div>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6s08-fKtNea86dUcZdkW0dRrYyX885sibdwusz8ROrKBVa1nsQGLe1CtHGm4tlWM2ssU&usqp=CAU" class="img-thumbnail" alt="...">
+                              <div class="body-card">
+                                <h5 class="text-dark">976541 Likes</h5>
+                                <p class="card-text">Favorite Hockey team.</p>
+                                <p class="card-text"><span class="text-muted mr-2"><i
+                                  class="far fa-heart fa-1x"></i></span><span
+                              class="text-muted">Comment...</span></p>
+                               </div>  
+                                
+                              </div>
+                            </div>
+                      </div>
+                      
+                  </div>
+
+                  <div class="container">
+                    <div class="row justify-content-md-center">
+                      <div class="col-md-8 mx-auto pt-3">
+                          <div class="card">
+                                <div class="card-header bg-white d-flex justify-content-between">
+                                  <h4 class="card-title">Pickleball</h4>
+                                 <span class="text-muted">11/14</span> 
+                                </div>
+                                <img src="https://www.recesspickleball.com/cdn/shop/products/recesspickleball-paddle-vista-38396200190195.jpg?v=1665198537" class="img-thumbnail" alt="...">
+                                  <div class="body-card">
+                                    <h5 class="text-dark">6985 Likes</h5>
+                                    <p class="card-text">A new hobbie I picked up last year.</p>
+                                    <p class="card-text"><span class="text-muted mr-2"><i
+                                      class="far fa-heart fa-1x"></i></span><span
+                                  class="text-muted">Comment...</span></p>
+                                   </div>  
+                                    
+                                  </div>
+                                </div>
+                          </div>
+                          
+                      </div>
+
+                      <div class="container">
+                        <div class="row justify-content-md-center">
+                          <div class="col-md-8 mx-auto pt-3">
+                              <div class="card">
+                                    <div class="card-header bg-white d-flex justify-content-between">
+                                      <h4 class="card-title">Paddle Boarding</h4>
+                                     <span class="text-muted">11/14</span> 
+                                    </div>
+                                    <img src="https://scontent-ord5-2.xx.fbcdn.net/v/t39.30808-6/239198380_4210621325653673_7857223962333306645_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=9534ce&_nc_ohc=ftbq1s3C-qwAX8ADhcb&_nc_ht=scontent-ord5-2.xx&oh=00_AfBdyF0esxH4ht82BxNMbgpD_JdnU44MyZPe-gAvgijw5w&oe=65EBE3CD" class="img-thumbnail" alt="...">
+                                      <div class="body-card">
+                                        <h5 class="text-dark">65474 Likes</h5>
+                                        <p class="card-text">In a glacier lake on top of a mountain.</p>
+                                        <p class="card-text"><span class="text-muted mr-2"><i
+                                          class="far fa-heart fa-1x"></i></span><span
+                                      class="text-muted">Comment...</span></p>
+                                       </div>  
+                                        
+                                      </div>
+                                    </div>
+                              </div>
+                              
+                          </div>
+
+                          <div class="container">
+                            <div class="row justify-content-md-center">
+                              <div class="col-md-8 mx-auto pt-3">
+                                  <div class="card">
+                                        <div class="card-header bg-white d-flex justify-content-between">
+                                          <h4 class="card-title">Mountains</h4>
+                                         <span class="text-muted">11/15</span> 
+                                        </div>
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqnMpOxQrLHBMyEw9Rg-sYy-QxyjJ9rXTxOw&usqp=CAU" class="img-thumbnail" alt="...">
+                                          <div class="body-card">
+                                            <h5 class="text-dark">789 Likes</h5>
+                                            <p class="card-text">My favorite place to take a vacation.</p>
+                                            <p class="card-text"><span class="text-muted mr-2"><i
+                                              class="far fa-heart fa-1x"></i></span><span
+                                          class="text-muted">Comment...</span></p>
+                                           </div>  
+                                            
+                                          </div>
+                                        </div>
+                                  </div>
+                                  
+                              </div>
+
+                              <div class="container">
+                                <div class="row justify-content-md-center">
+                                    <div class="col-md-8 mx-auto">
+                                        <div class="card pt-3">
+                                            <div class="card-header bg-white d-flex justify-content-between">
+                                                <h4 class="card-title">Surfing</h4>
+                                                <span class="text-muted">11/16</span>
+                                            </div>
+                                            <img src="https://ih1.redbubble.net/image.5076965639.1073/fposter,small,wall_texture,square_product,600x600.jpg" class="img-thumbnail">
+                                            <div class="body-card">
+                                                <h5 class="text-dark">9725 Likes</h5>
+                                                <p class="card-text">Another of my favorite hobbies.</p>
+                                                <p class="card-text">
+                                                    <span class="text-muted mr-2"><i class="far fa-heart fa-1x"></i></span>
+                                                    <span class="text-muted">Comment...</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+
+                                  <div class="container">
+                                    <div class="row justify-content-md-center">
+                                      <div class="col-md-8 mx-auto pt-3">
+                                          <div class="card">
+                                                <div class="card-header bg-white d-flex justify-content-between">
+                                                  <h4 class="card-title">Stars</h4>
+                                                 <span class="text-muted">11/17</span> 
+                                                </div>
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_dYzUp2-JH64Ikfi1gjbnk2NiACEyFYwmQQ&usqp=CAU" class="img-thumbnail img-thumbnail-square star-picture" alt="...">
+                                                  <div class="body-card">
+                                                    <h5 class="text-dark">1235 Likes</h5>
+                                                    <p class="card-text">Looking at the night sky is the best way to find peace.</p>
+                                                    <p class="card-text"><span class="text-muted mr-2"><i
+                                                      class="far fa-heart fa-1x"></i></span><span
+                                                  class="text-muted">Comment...</span></p>
+                                                   </div>  
+                                                    
+                                                  </div>
+                                                </div>
+                                          </div>
+                                          
+                                      </div>
+
+                                      <div class="container">
+                                        <div class="row justify-content-md-center">
+                                          <div class="col-md-8 mx-auto pt-3">
+                                              <div class="card">
+                                                    <div class="card-header bg-white d-flex justify-content-between">
+                                                      <h4 class="card-title">Lemons</h4>
+                                                     <span class="text-muted">11/18</span> 
+                                                    </div>
+                                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4YkmRlPOmsIzBQlRfGjIROC-du58Kr1u_Cg&usqp=CAU" class="img-thumbnail" alt="...">
+                                                      <div class="body-card">
+                                                        <h5 class="text-dark">85254 Likes</h5>
+                                                        <p class="card-text">While I love winter, summer is the best season. Lemons remind me of summer.</p>
+                                                        <p class="card-text"><span class="text-muted mr-2"><i
+                                                          class="far fa-heart fa-1x"></i></span><span
+                                                      class="text-muted">Comment...</span></p>
+                                                       </div>  
+                                                        
+                                                      </div>
+                                                    </div>
+                                              </div>
+                                              
+                                          </div>
+
+                                          
+
+                                              
+
+
+
+
+      </div>
+      
+ 
+ 
+    </div>
+  
+<!---->
+</div> 
+
+
+
+    
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
